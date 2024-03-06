@@ -1,0 +1,64 @@
+<%- include("header") %>
+
+<div>
+    <% if (locals.done != null) { %>
+        <h1><%= locals.done.title %></h1>
+        <h2 style="margin: 30px;"><%= locals.done.desc %></h2>
+        <button onclick="window.location.href='/'">Restart</button>
+    <% } else { %>
+        <div>
+            <h1>
+                <span style="cursor: pointer;" onclick="window.location.href='/romaji'">
+                    romaji : 
+                    <% if (locals.romaji == null || locals.romaji == "") { %>
+                        Reveal?
+                    <% } else { %>
+                        <%= romaji %>
+                    <% } %>
+                </span>
+            </h1>
+        </div>
+
+        <div>
+            <h1>
+                <span style="cursor: pointer;" onclick="window.location.href='/hiragana'">
+                    hiragana : 
+                    <% if (locals.hiragana == null || locals.hiragana == "") { %>
+                        Reveal?
+                    <% } else { %>
+                        <%= hiragana %>
+                    <% } %>
+                </span>
+            </h1>
+        </div>
+
+        <div>
+            <h1>
+                <span style="cursor: pointer;" onclick="window.location.href='/katakana'">
+                    katakana : 
+                    <% if (locals.katakana == null || locals.katakana == "") { %>
+                        Reveal?
+                    <% } else { %>
+                        <%= katakana %>
+                    <% } %>
+                </span>
+            </h1>
+        </div>
+
+        <% if (locals.finish != null) { %>
+            <h3><%= finish %> DONE out of 46</h3>
+        <% } %>
+        <% if (locals.remain != null) { %>
+            <h3><%= remain %> LEFT out of 46</h3>
+        <% } %>
+        
+        <button onclick="window.location.href='/next'">Next</button>
+        <button onclick="window.location.href='/skip'">Skip</button>
+        <button onclick="window.location.href='/'" style="margin-left: 120px;">Restart</button>
+        <!-- <div style="color: red; margin-top: 10px;">*Restart button can only be clicked after clicking Enable button.</div> -->
+    <% } %>
+</div>
+
+
+
+<%- include("footer") %>
